@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Final Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+     body {
+      background-color: #ffe6f0;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+      padding: 60px 20px 160px; /* bottom padding for cat */
+      color: #ff1493;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 50px;
+      line-height: 1.3;
+      font-weight: normal;
+    }
+
+    .rolling-pic {
+      width: 350px;
+      max-width: 90vw;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(255, 20, 147, 0.4);
+      animation: rollIn 1.5s ease forwards;
+      margin-bottom: 50px;
+    }
+
+    @keyframes rollIn {
+      0% {
+        opacity: 0;
+        transform: translateX(-300px) rotate(-360deg);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0) rotate(0deg);
+      }
+    }
+
+    .cute-btn {
+      border: 2px solid #ff69b4;
+      color: #ff69b4;
+      background-color: transparent;
+      border-radius: 25px;
+      padding: 12px 40px;
+      font-size: 1.3rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .cute-btn:hover {
+      background-color: #ff69b4;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>I  love you Dami, so please don’t leave or explode.....okay</h1>
+
+  <img src="photo/final_imagedami.jpg" alt="Rolling Picture of Me" class="rolling-pic" />
+
+  <a href="dami5.html" class="cute-btn">Click Me</a>
+
+</body>
+</html>

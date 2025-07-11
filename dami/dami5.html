@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Final Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #ffe6f0;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            padding: 60px 20px 160px;
+            /* bottom padding for cat */
+            color: #ff1493;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            line-height: 1.3;
+            font-weight: normal;
+        }
+
+        .rolling-pic {
+            width: 350px;
+            max-width: 90vw;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(255, 20, 147, 0.4);
+            animation: rollIn 1.5s ease forwards;
+            margin-bottom: 50px;
+        }
+
+        @keyframes rollIn {
+            0% {
+                opacity: 0;
+                transform: translateX(-300px) rotate(-360deg);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0) rotate(0deg);
+            }
+        }
+
+        .cute-btn {
+            border: 2px solid #ff69b4;
+            color: #ff69b4;
+            background-color: transparent;
+            border-radius: 25px;
+            padding: 12px 40px;
+            font-size: 1.3rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 50px;
+        }
+
+        .cute-btn:hover {
+            background-color: #ff69b4;
+            color: white;
+        }
+
+        /* Cat container centered */
+        .cat-container {
+            margin: 0 auto;
+            width: 180px;
+            position: relative;
+            animation: catBounce 2.5s ease-in-out infinite;
+            user-select: none;
+        }
+
+        @keyframes catBounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* Speech bubble */
+        .speech-bubble {
+            position: relative;
+            width: 220px;
+            background: #ff69b4;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1rem;
+            padding: 12px 18px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(255, 20, 147, 0.3);
+            animation: fadeInBubble 2s ease forwards;
+            text-align: center;
+            line-height: 1.3;
+            margin: 0 auto 20px auto;
+            user-select: none;
+            z-index: 20;
+        }
+
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 15px solid #ff69b4;
+            z-index: 20;
+        }
+
+        @keyframes fadeInBubble {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* CSS Cat */
+
+        .cat {
+            position: relative;
+            width: 120px;
+            height: 100px;
+            margin: 0 auto;
+            z-index: 10;
+        }
+
+        /* Ears */
+        .ear {
+            position: absolute;
+            width: 30px;
+            height: 40px;
+            background: #ff69b4;
+            border-radius: 50% 50% 20% 20% / 60% 60% 20% 20%;
+            top: 0;
+            box-shadow: inset -5px 0 10px #d63384;
+            z-index: 11;
+        }
+
+        .ear.left {
+            left: 10px;
+            transform: rotate(-20deg);
+        }
+
+        .ear.right {
+            right: 10px;
+            transform: rotate(20deg);
+            box-shadow: inset 5px 0 10px #d63384;
+        }
+
+        /* Head */
+        .head {
+            width: 100px;
+            height: 90px;
+            background: #ff85c1;
+            border-radius: 60% / 100% 100% 50% 50%;
+            position: relative;
+            margin: 0 auto;
+            box-shadow: 0 0 10px #d63384;
+            top: 15px;
+            z-index: 10;
+        }
+
+        /* Eyes */
+        .eye {
+            position: absolute;
+            top: 40px;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 3px #d63384;
+            z-index: 12;
+        }
+
+        .eye.left {
+            left: 20px;
+        }
+
+        .eye.right {
+            right: 20px;
+        }
+
+        /* Pupils */
+        .pupil {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            width: 8px;
+            height: 8px;
+            background: #d63384;
+            border-radius: 50%;
+            z-index: 13;
+        }
+
+        /* Nose */
+        .nose {
+            position: absolute;
+            top: 65px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 14px;
+            height: 10px;
+            background: #d63384;
+            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+            box-shadow: inset 0 0 3px #ff1493;
+            z-index: 14;
+        }
+
+        /* Mouth */
+        .mouth {
+            position: absolute;
+            top: 75px;
+            left: 50%;
+            width: 40px;
+            height: 10px;
+            border-bottom: 3px solid #d63384;
+            border-radius: 0 0 40px 40px;
+            transform: translateX(-50%);
+            z-index: 14;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<audio id="bg-music" autoplay loop muted style="display:none">
+  <source src="song/tenderness.mp3" type="audio/mpeg" />
+</audio>
+
+<script>
+  document.body.addEventListener('click', () => {
+    const music = document.getElementById('bg-music');
+    if (music.muted) {
+      music.muted = false;
+      music.play();
+    }
+  }, { once: true });
+</script>
+
+
+
+    <div class="cat-container" title="Cute cat says...">
+        <div class="speech-bubble">
+            That is all for now my love...<br>dw I will code better ones later
+        </div>
+        <div class="cat">
+            <div class="ear left"></div>
+            <div class="ear right"></div>
+            <div class="head">
+                <div class="eye left">
+                    <div class="pupil"></div>
+                </div>
+                <div class="eye right">
+                    <div class="pupil"></div>
+                </div>
+                <div class="nose"></div>
+                <div class="mouth"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
